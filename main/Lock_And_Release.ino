@@ -25,6 +25,8 @@ void Lock_And_Release()
   switch(state)
   {
     case Idle:
+      Serial.print("In IDLE STATE:");
+      Serial.print("\n");
       if(StateSensor())
       {
         state = Ready;
@@ -36,6 +38,8 @@ void Lock_And_Release()
       break;
 
     case Ready:
+    Serial.print("In RDY STATE:");
+      Serial.print("\n");
       buttonState = digitalRead(buttonPin);
       if(buttonState == HIGH)
       {
@@ -50,18 +54,26 @@ void Lock_And_Release()
       break;
 
     case Retainer_Release:
+    Serial.print("In RETAINER RELEASE STATE:");
+      Serial.print("\n");
       state = Catcher_Extend;
       break;
 
     case Catcher_Extend:
+    Serial.print("In CATCHEREXTENDS STATE:");
+      Serial.print("\n");
       state = Magazine_Retrace;
       break;
 
     case Magazine_Retrace:
+    Serial.print("In MAGAZINERETRACE STATE:");
+      Serial.print("\n");
       state = Retainer_Extend;
       break;
       
     case Retainer_Extend:
+    Serial.print("In LAST STATE:");
+      Serial.print("\n");
       state = Idle;
       break;
 
@@ -85,15 +97,18 @@ void Lock_And_Release()
 
     case Retainer_Release:
       Solenoid_On(RetainerPin1, 0);
-      Solenoid_On(RetainerPin2, 100);
+      Solenoid_On(RetainerPin2, 0);
+      delay(100);
       break;
 
     case Catcher_Extend:
       Solenoid_On(CatcherPin, 0);
+      delay(100);
       break;
 
     case Magazine_Retrace:
       Solenoid_On(MagazinePin, 0);
+      delay(500);
       break;
       
     case Retainer_Extend:
@@ -112,3 +127,4 @@ void Lock_And_Release()
 
 
 // the loop function runs over and over again forever
+

@@ -26,7 +26,7 @@ long singleMeasurement()
   long duration = 0;
   // Measure: Put up Trigger...
   digitalWrite(TRIGGER_PIN, HIGH);
-  // ... wait for 11 µs ...
+  // ... wait for 11 Âµs ...
   delayMicroseconds(11);
   // ... put the trigger down ...
   digitalWrite(TRIGGER_PIN, LOW);
@@ -60,5 +60,6 @@ bool StateSensor() {
   }
 
 }
+
 
 

@@ -53,7 +53,6 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   Lock_And_Release();
- 
-  delay(1000);
   
 }
+
