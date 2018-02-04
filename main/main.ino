@@ -21,7 +21,7 @@ double G_Percentage = 0.0;
 
 double full_roll = 0.0;
 double current_roll = 0.0;
-double fixed_distance = 200;
+double fixed_distance = 106;
 double ping_value = 0.0;
 
 int buttonState = 0;

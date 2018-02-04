@@ -27,15 +27,15 @@ void Lock_And_Release()
     case Idle:
       Serial.print("In IDLE STATE:");
       Serial.print("\n");
-//      if(StateSensor())
-//      {
-//        state = Ready;
-//      }
-//      else
-//      {
-//        state = Idle;
-//      }
-      state = Ready;
+      if(StateSensor())
+      {
+        state = Ready;
+      }
+      else
+      {
+        state = Idle;
+      }
+      //state = Ready;
       break;
 
     case Ready:
@@ -115,6 +115,7 @@ void Lock_And_Release()
     case Retainer_Extend:
       Solenoid_Off(RetainerPin1);
       Solenoid_Off(RetainerPin2);
+      delay(1000);
       ping_value = singleMeasurement();
       full_roll = fixed_distance - ping_value;
       Serial.print("PingValue IN RETAINER EXTEND:");
